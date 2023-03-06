@@ -6,39 +6,54 @@ using UnityEngine.InputSystem;
 public class cursorControls : MonoBehaviour
 {
     public bool m_controllorMouseMove;
-    Vector2 m_mouseChange;
+    Vector3 m_mouseChange;
+
+    [SerializeField]
+    private float m_mouseSpeed;
     public void moveMouseCursor(InputAction.CallbackContext context)
     {
+        Vector3 Dir = context.ReadValue<Vector2>();
 
-        if (m_controllorMouseMove)
+
+
+        if (Dir == Vector3.zero)
         {
             m_controllorMouseMove = false;
-            
         }
         else
         {
-            m_mouseChange = context.ReadValue<Vector2>();
+            m_mouseChange = Dir;
             m_controllorMouseMove = true;
         }
-        
-        
-        Debug.Log(m_mouseChange);
-        
-        
 
-        
-        
+
+
+        //Debug.Log(m_mouseChange);
+
+
+
+
+
 
     }
 
     private void Update()
     {
-        
-        if(m_controllorMouseMove)
+
+        if (m_controllorMouseMove)
         {
-            
-            Vector2 currentMousePos = Mouse.current.position.ReadValue();
-            Mouse.current.WarpCursorPosition((currentMousePos += m_mouseChange));
+            transform.position += (m_mouseChange * m_mouseSpeed);
+            Vector3 mousePos = Camera.main.WorldToScreenPoint(transform.position);
+            Debug.Log(mousePos);
+            Mouse.current.WarpCursorPosition(mousePos);
+
+        }
+        else
+        {
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            Vector3 tempPos = Camera.main.ScreenToWorldPoint(mousePos);
+            tempPos.z = 0;
+            transform.position = tempPos;
         }
     }
 }
