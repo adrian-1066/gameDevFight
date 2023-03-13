@@ -12,11 +12,13 @@ public class playerControllor : MonoBehaviour
 
     public PlayerMain m_player;
     private playerSetUp m_playerSetUp;
+    private Animator m_animator;
     private void Start()
     {
         m_isMoving = false;
         m_playerSetUp = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<playerSetUp>();
         m_playerSetUp.setUpPlayer(gameObject);
+        m_animator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -51,7 +53,8 @@ public class playerControllor : MonoBehaviour
         if(context.ReadValue<float>() == 1 )
         {
             //Debug.Log("light attack");
-            m_player.testOne();
+            m_player.lightAttack();
+            StartCoroutine(C_attackDuration(m_player.m_lightAttackDuration));
         }
         else if(context.ReadValue<float>() == 0)
         {
@@ -76,6 +79,13 @@ public class playerControllor : MonoBehaviour
     public void heavyAttack(InputAction.CallbackContext context)
     {
 
+    }
+
+    public IEnumerator C_attackDuration(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);
+        m_animator.SetBool("isAttacking", false);
     }
 
     

@@ -5,6 +5,16 @@ using UnityEngine;
 public class PlayerMain : MonoBehaviour
 {
     public int charID;
+    public RuntimeAnimatorController controller;
+    public Animator m_animator;
+    public GameObject m_player;
+
+    public float m_lightAttackDuration;
+
+    virtual public void lightAttack()
+    {
+
+    }
 
     public void testOne()
     {
@@ -14,6 +24,12 @@ public class PlayerMain : MonoBehaviour
     virtual public void testTwo()
     {
         Debug.Log("test two failed");
+    }
+
+    public IEnumerator C_attackDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        m_animator.SetBool("isAttacking", false);
     }
 
     

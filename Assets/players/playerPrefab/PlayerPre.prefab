@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7676135249214888902}
   - component: {fileID: 7676135249214888905}
   - component: {fileID: 7676135249214888904}
+  - component: {fileID: 5519054676067149730}
+  - component: {fileID: 7935058270143538092}
   m_Layer: 0
   m_Name: PlayerPre
   m_TagString: Untagged
@@ -199,6 +201,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d8365446-b70d-4dcf-8375-19a47208d4a3
     m_ActionName: Player/normalAttack[/XInputControllerWindows/buttonNorth,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 22e93820-8998-4361-a5fb-ad91393c8e1e
+    m_ActionName: UI/Look
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -218,3 +224,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveSpeed: 0.01
   m_player: {fileID: 0}
+--- !u!95 &5519054676067149730
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676135249214888907}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7935058270143538092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676135249214888907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676420ac3ddd4a04d93470e762a329d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charID: 0
+  controller: {fileID: 0}
+  m_animator: {fileID: 0}
+  m_player: {fileID: 0}
+  m_lightAttackDuration: 0

@@ -18,13 +18,24 @@ public class playerSetUp : MonoBehaviour
     {
         int user = player.GetComponent<PlayerInput>().user.index;
         playerControllor temp = player.GetComponent<playerControllor>();
+        Animator tempAni = player.GetComponent<Animator>();
+
+        
         if(user == 0)
         {
+            
+
             temp.m_player = m_playerOne;
+            m_playerOne.m_player = player;
+            m_playerOne.m_animator = tempAni;
+            tempAni.runtimeAnimatorController = m_playerOne.controller;
         }
         else if(user == 1)
         {
             temp.m_player = m_playerTwo;
+            m_playerTwo.m_player = player;
+            m_playerTwo.m_animator = tempAni;
+            tempAni.runtimeAnimatorController = m_playerTwo.controller;
         }
         
         
