@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7676135249214888904}
   - component: {fileID: 5519054676067149730}
   - component: {fileID: 7935058270143538092}
+  - component: {fileID: 6603158477651037342}
   m_Layer: 0
   m_Name: PlayerPre
   m_TagString: Untagged
@@ -224,7 +225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveSpeed: 0.01
   m_player: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!95 &5519054676067149730
+=======
+--- !u!95 &6603158477651037342
+>>>>>>> Stashed changes
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -234,7 +239,11 @@ Animator:
   m_GameObject: {fileID: 7676135249214888907}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
+<<<<<<< Updated upstream
   m_Controller: {fileID: 0}
+=======
+  m_Controller: {fileID: 9100000, guid: 380da4f0ef669d74fba99730661a6cf8, type: 2}
+>>>>>>> Stashed changes
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -244,6 +253,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< Updated upstream
 --- !u!114 &7935058270143538092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,3 +271,5 @@ MonoBehaviour:
   m_animator: {fileID: 0}
   m_player: {fileID: 0}
   m_lightAttackDuration: 0
+=======
+>>>>>>> Stashed changes
