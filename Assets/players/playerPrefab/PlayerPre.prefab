@@ -261,3 +261,5 @@ MonoBehaviour:
   m_animator: {fileID: 0}
   m_player: {fileID: 0}
   m_lightAttackDuration: 0
+  m_recentAttackInput: []
+  m_comboList: {fileID: 11400000, guid: 3bb9586c9165ca1459646d892a9a7431, type: 2}

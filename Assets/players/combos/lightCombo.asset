@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: lightCombo
   m_EditorClassIdentifier: 
   comboPattern: 000000000000000000000000
+  m_animationNum: 20

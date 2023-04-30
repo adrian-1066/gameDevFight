@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dafd1a3e4a8d3a44b2ae51c0d7299f7, type: 3}
   m_Name: comboList
   m_EditorClassIdentifier: 
-  m_list: []
+  m_list3:
+  - {fileID: 11400000, guid: be498b7300ccd574f81bc6ad06e63ee3, type: 2}
+  m_list2:
+  - {fileID: 11400000, guid: ed3cb1a546712e34cbbc9023d45b7f66, type: 2}
+  - {fileID: 11400000, guid: 06c061e4c22607445b4f0f55d620e030, type: 2}
+  - {fileID: 11400000, guid: 5af4412e247ff4c428bf78acc10ea9c6, type: 2}

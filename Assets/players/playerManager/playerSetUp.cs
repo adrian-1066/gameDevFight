@@ -8,6 +8,7 @@ public class playerSetUp : MonoBehaviour
     private PlayerMain m_playerTwo;
     public characterSO m_charList;
 
+    public listOfCombos m_comboList;
     private void Start()
     {
         m_playerOne = m_charList.AllCharScript[0];
@@ -28,6 +29,7 @@ public class playerSetUp : MonoBehaviour
             temp.m_player = m_playerOne;
             m_playerOne.m_player = player;
             m_playerOne.m_animator = tempAni;
+            m_playerOne.m_comboList = m_comboList;
             tempAni.runtimeAnimatorController = m_playerOne.controller;
         }
         else if(user == 1)

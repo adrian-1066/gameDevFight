@@ -7,4 +7,5 @@ using UnityEngine;
 public class attackCombos : ScriptableObject
 {
     public int[] comboPattern;
+    public int m_animationNum;
 }

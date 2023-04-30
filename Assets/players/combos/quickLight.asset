@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: quickLight
   m_EditorClassIdentifier: 
   comboPattern: 0000000000000000
+  m_animationNum: 22

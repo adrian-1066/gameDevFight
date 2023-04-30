@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: medLight
   m_EditorClassIdentifier: 
   comboPattern: 0100000000000000
+  m_animationNum: 21

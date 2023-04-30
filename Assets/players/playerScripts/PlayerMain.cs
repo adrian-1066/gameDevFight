@@ -11,10 +11,15 @@ public class PlayerMain : MonoBehaviour
 
     public float m_lightAttackDuration;
     protected int m_attackType;
-    public List<int> m_recentAttackInput = new List<int>();
+    public List<Vector2> m_recentAttackInput = new List<Vector2>();
+    public listOfCombos m_comboList;
+    protected int[] m_currentCombo2;
+    protected int[] m_currentCombo3;
 
     private void Start()
     {
+        m_currentCombo2 = new int[2];
+        m_currentCombo3 = new int[3];
         
     }
 

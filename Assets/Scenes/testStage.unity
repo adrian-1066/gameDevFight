@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_charList: {fileID: 11400000, guid: a3c5f5eb36d6076439b547909f01f9f5, type: 2}
+  m_comboList: {fileID: 11400000, guid: 3bb9586c9165ca1459646d892a9a7431, type: 2}
 --- !u!1 &1655709699
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +355,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 0a92a15b451b17840b5662f4d8119d2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
