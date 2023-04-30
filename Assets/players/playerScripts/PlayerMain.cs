@@ -10,6 +10,13 @@ public class PlayerMain : MonoBehaviour
     public GameObject m_player;
 
     public float m_lightAttackDuration;
+    protected int m_attackType;
+    public List<int> m_recentAttackInput = new List<int>();
+
+    private void Start()
+    {
+        
+    }
 
     virtual public void lightAttack()
     {
