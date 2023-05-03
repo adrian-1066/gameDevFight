@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7a603bad8b2bc4281e1027fce71695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 0.01
+  m_moveSpeed: 0.002
   m_player: {fileID: 0}
 --- !u!95 &5519054676067149730
 Animator:
@@ -263,3 +263,8 @@ MonoBehaviour:
   m_lightAttackDuration: 0
   m_recentAttackInput: []
   m_comboList: {fileID: 11400000, guid: 3bb9586c9165ca1459646d892a9a7431, type: 2}
+  m_light1Dur: 0
+  m_light2Dur: 0
+  m_light3Dur: 0
+  m_medDur: 0
+  m_hevDur: 0

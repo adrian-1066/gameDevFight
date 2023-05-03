@@ -16,6 +16,13 @@ public class PlayerMain : MonoBehaviour
     protected int[] m_currentCombo2;
     protected int[] m_currentCombo3;
 
+    public float m_light1Dur;
+    public float m_light2Dur;
+    public float m_light3Dur;
+
+    public float m_medDur;
+    public float m_hevDur;
+
     private void Start()
     {
         m_currentCombo2 = new int[2];
@@ -42,7 +49,10 @@ public class PlayerMain : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         m_animator.SetBool("isAttacking", false);
+        m_animator.SetInteger("attackType", -1);
     }
+
+    
 
     
 }

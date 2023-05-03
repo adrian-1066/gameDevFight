@@ -37,11 +37,13 @@ public class playerControllor : MonoBehaviour
         if(dir == Vector3.zero)
         {
             m_isMoving = false;
+            m_animator.SetBool("isWalking", false);
         }
         else
         {
             m_direction = dir;
             m_isMoving = true;
+            m_animator.SetBool("isWalking", true);
         }
         
         
