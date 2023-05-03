@@ -23,6 +23,7 @@ public class PlayerMain : MonoBehaviour
     public float m_medDur;
     public float m_hevDur;
 
+    public bool m_canAttack;
     private void Start()
     {
         m_currentCombo2 = new int[2];

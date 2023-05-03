@@ -19,6 +19,7 @@ public class playerControllor : MonoBehaviour
         m_playerSetUp = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<playerSetUp>();
         m_playerSetUp.setUpPlayer(gameObject);
         m_animator = gameObject.GetComponent<Animator>();
+        m_player.m_canAttack = true;
 
     }
 
@@ -51,20 +52,25 @@ public class playerControllor : MonoBehaviour
 
     public void lightAttack(InputAction.CallbackContext context)
     {
-        
-        if(context.ReadValue<float>() == 1 )
+        if (m_player.m_canAttack)
         {
-            //Debug.Log("light attack");
-            m_player.lightAttack();
-            StartCoroutine(C_attackDuration(m_player.m_lightAttackDuration));
-        }
-        else if(context.ReadValue<float>() == 0)
-        {
-            //Debug.Log("attack ended");
-        }
-        else
-        {
-            //Debug.Log("ahhhhhh");
+            
+
+            if (context.ReadValue<float>() == 1)
+            {
+                //Debug.Log("light attack");
+                m_player.lightAttack();
+                m_player.m_canAttack = false;
+                StartCoroutine(C_attackDuration(m_player.m_lightAttackDuration));
+            }
+            else if (context.ReadValue<float>() == 0)
+            {
+                //Debug.Log("attack ended");
+            }
+            else
+            {
+                //Debug.Log("ahhhhhh");
+            }
         }
         
     }
@@ -88,6 +94,7 @@ public class playerControllor : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
         m_animator.SetBool("isAttacking", false);
+        m_player.m_canAttack = true;
     }
 
     

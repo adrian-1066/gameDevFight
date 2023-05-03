@@ -5,14 +5,18 @@ using UnityEngine.InputSystem;
 public class playerSetUp : MonoBehaviour
 {
     private PlayerMain m_playerOne;
+    private GameObject m_playerOneChar;
     private PlayerMain m_playerTwo;
+    private GameObject m_playerTwoChar;
     public characterSO m_charList;
 
     public listOfCombos m_comboList;
     private void Start()
     {
-        m_playerOne = m_charList.AllCharScript[0];
-        m_playerTwo = m_charList.AllCharScript[0];
+        m_playerOneChar = Instantiate(m_charList.AllCharScript[0].gameObject);
+        m_playerTwoChar = Instantiate(m_charList.AllCharScript[0].gameObject);
+        m_playerOne = m_playerOneChar.GetComponent<PlayerMain>();
+        m_playerTwo = m_playerTwoChar.GetComponent<PlayerMain>();
     }
 
     public void setUpPlayer(GameObject player)
@@ -37,6 +41,7 @@ public class playerSetUp : MonoBehaviour
             temp.m_player = m_playerTwo;
             m_playerTwo.m_player = player;
             m_playerTwo.m_animator = tempAni;
+            m_playerTwo.m_comboList = m_comboList;
             tempAni.runtimeAnimatorController = m_playerTwo.controller;
         }
         

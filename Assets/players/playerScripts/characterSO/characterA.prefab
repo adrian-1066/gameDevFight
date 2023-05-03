@@ -103,7 +103,13 @@ MonoBehaviour:
   m_animator: {fileID: 0}
   m_player: {fileID: 0}
   m_lightAttackDuration: 0.35
-  m_recentAttackInput: 
+  m_recentAttackInput: []
+  m_comboList: {fileID: 0}
+  m_light1Dur: 0.35
+  m_light2Dur: 0.267
+  m_light3Dur: 0.433
+  m_medDur: 0.75
+  m_hevDur: 0.683
 --- !u!95 &-5935467008678211856
 Animator:
   serializedVersion: 4
