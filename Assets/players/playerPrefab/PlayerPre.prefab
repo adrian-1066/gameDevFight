@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7676135249214888904}
   - component: {fileID: 5519054676067149730}
   - component: {fileID: 7935058270143538092}
+  - component: {fileID: 6008704976481094598}
   m_Layer: 0
   m_Name: PlayerPre
   m_TagString: Untagged
@@ -268,3 +269,30 @@ MonoBehaviour:
   m_light3Dur: 0
   m_medDur: 0
   m_hevDur: 0
+  m_canAttack: 0
+--- !u!61 &6008704976481094598
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676135249214888907}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 2}
+  m_EdgeRadius: 0
