@@ -21,6 +21,9 @@ public class playerSetUp : MonoBehaviour
 
     public GameObject m_p1Ui;
     public GameObject m_p2Ui;
+
+    public GameObject p1Spawn;
+    public GameObject p2Spawn;
    
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class playerSetUp : MonoBehaviour
         {
 
             m_p1Actor = player;
+            m_p1Actor.transform.position = p1Spawn.transform.position;
             temp.m_player = m_playerOne;
             m_playerOne.m_stats = m_playerOneChar.GetComponent<playerStats>();
             m_playerOne.m_player = player;
@@ -64,6 +68,7 @@ public class playerSetUp : MonoBehaviour
         else if(user == 1)
         {
             m_p2Actor = player;
+            m_p2Actor.transform.position = p2Spawn.transform.position;
             temp.m_player = m_playerTwo;
             m_playerTwo.m_stats = m_playerTwoChar.GetComponent<playerStats>();
             m_playerTwo.m_player = player;

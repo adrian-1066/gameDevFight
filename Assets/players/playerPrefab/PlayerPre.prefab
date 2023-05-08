@@ -240,10 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7a603bad8b2bc4281e1027fce71695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 0.002
+  m_moveSpeed: 0.01
   m_player: {fileID: 0}
   m_playerIndex: 0
   m_hasGameStarted: 0
+  m_canMove: 0
 --- !u!95 &5519054676067149730
 Animator:
   serializedVersion: 4
@@ -300,6 +301,7 @@ MonoBehaviour:
   m_enemyMain: {fileID: 0}
   m_isBlocking: 0
   m_stats: {fileID: 0}
+  m_isStunned: 0
   m_dist: 0
 --- !u!61 &6008704976481094598
 BoxCollider2D:
