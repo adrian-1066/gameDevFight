@@ -18,21 +18,27 @@ public class characterA : PlayerMain
         int attackAni = attackCombo();
         //Debug.Log(attackAni);
         m_animator.SetInteger("attackType", attackAni);
+
+        if(attackAni == m_attackType)
+        {
+            m_damage = m_LightDamage;
+            m_dist = m_lightDist;
+        }
         if (m_recentAttackInput.Count >= 3)
         {
             m_recentAttackInput.Clear();
         }
         float tempDur;
 
-        if(attackAni == m_light1Dur)
+        if(attackAni == 0)
         {
             tempDur = m_light1Dur;
         }
-        else if(attackAni == m_light2Dur)
+        else if(attackAni == 22)
         {
             tempDur = m_light2Dur;
         }
-        else if(attackAni == m_light3Dur)
+        else if(attackAni == 20)
         {
             tempDur = m_light3Dur;
         }
@@ -41,7 +47,7 @@ public class characterA : PlayerMain
             tempDur = m_light1Dur;
         }
 
-        StartCoroutine(C_attackDuration(tempDur));
+        StartCoroutine(C_attackDuration(tempDur, m_dist, m_damage));
 
     }
 
@@ -168,6 +174,8 @@ public class characterA : PlayerMain
                 {
                     //comboToDo = x;
                     comboToDo = m_comboList.m_list2[x].m_animationNum;
+                    m_damage = m_comboList.m_list2[x].m_attackDamage;
+                    m_dist = m_comboList.m_list2[x].m_distance;
                     Debug.Log("combo found for combo size 2");
                     break;
                 }
@@ -185,6 +193,8 @@ public class characterA : PlayerMain
                 {
                     //comboToDo = x;
                     comboToDo = m_comboList.m_list3[x].m_animationNum;
+                    m_damage = m_comboList.m_list3[x].m_attackDamage;
+                    m_dist = m_comboList.m_list3[x].m_distance;
                     Debug.Log("combo found for combo size 3");
                     break;
                 }

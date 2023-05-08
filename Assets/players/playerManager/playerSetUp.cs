@@ -14,6 +14,9 @@ public class playerSetUp : MonoBehaviour
 
     private damageTracker m_damageTracker;
     private cameraFollowScript m_camFollow;
+
+    private GameObject m_p1Actor;
+    private GameObject m_p2Actor;
     private void Awake()
     {
         m_damageTracker = GetComponent<damageTracker>();
@@ -33,14 +36,16 @@ public class playerSetUp : MonoBehaviour
     {
         int user = player.GetComponent<PlayerInput>().user.index;
         playerControllor temp = player.GetComponent<playerControllor>();
+        temp.m_playerIndex = user;
         Animator tempAni = player.GetComponent<Animator>();
 
         
         if(user == 0)
         {
-            
 
+            m_p1Actor = player;
             temp.m_player = m_playerOne;
+            m_playerOne.m_stats = m_playerOneChar.GetComponent<playerStats>();
             m_playerOne.m_player = player;
             m_playerOne.m_animator = tempAni;
             m_playerOne.m_comboList = m_comboList;
@@ -51,7 +56,9 @@ public class playerSetUp : MonoBehaviour
         }
         else if(user == 1)
         {
+            m_p2Actor = player;
             temp.m_player = m_playerTwo;
+            m_playerTwo.m_stats = m_playerTwoChar.GetComponent<playerStats>();
             m_playerTwo.m_player = player;
             m_playerTwo.m_animator = tempAni;
             m_playerTwo.m_comboList = m_comboList;
@@ -59,8 +66,24 @@ public class playerSetUp : MonoBehaviour
             m_damageTracker.m_playerTwo = player.GetComponent<playerStats>();
             m_camFollow.m_playerTwo = player;
             m_camFollow.m_bothPlayersIn = true;
+
+            setUpSecondary();
         }
         
         
+    }
+
+    private void setUpSecondary()
+    {
+        m_playerOne.m_enemyMain = m_playerTwo;
+        m_playerOne.m_enemy = m_p2Actor;
+
+        m_playerTwo.m_enemyMain = m_playerOne;
+        m_playerTwo.m_enemy = m_p1Actor;
+
+        m_damageTracker.m_playerOne = m_playerOne.GetComponent<playerStats>();
+        m_damageTracker.m_playerTwo = m_playerTwo.GetComponent<playerStats>();
+
+
     }
 }

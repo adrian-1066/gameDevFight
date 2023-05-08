@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5519054676067149730}
   - component: {fileID: 7935058270143538092}
   - component: {fileID: 6008704976481094598}
+  - component: {fileID: 3313017219906585701}
   m_Layer: 0
   m_Name: PlayerPre
   m_TagString: Untagged
@@ -225,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveSpeed: 0.002
   m_player: {fileID: 0}
+  m_playerIndex: 0
 --- !u!95 &5519054676067149730
 Animator:
   serializedVersion: 4
@@ -264,12 +266,24 @@ MonoBehaviour:
   m_lightAttackDuration: 0
   m_recentAttackInput: []
   m_comboList: {fileID: 11400000, guid: 3bb9586c9165ca1459646d892a9a7431, type: 2}
+  m_LightDamage: 0
+  m_lightDist: 0
+  m_MedDamage: 0
+  m_medDist: 0
+  m_hevDamage: 0
+  m_hevDist: 0
   m_light1Dur: 0
   m_light2Dur: 0
   m_light3Dur: 0
   m_medDur: 0
   m_hevDur: 0
   m_canAttack: 0
+  m_damage: 0
+  m_enemy: {fileID: 0}
+  m_enemyMain: {fileID: 0}
+  m_isBlocking: 0
+  m_stats: {fileID: 0}
+  m_dist: 0
 --- !u!61 &6008704976481094598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -296,3 +310,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 2}
   m_EdgeRadius: 0
+--- !u!50 &3313017219906585701
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676135249214888907}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

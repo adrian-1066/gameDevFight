@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboPattern: 000000000000000000000000
   m_animationNum: 20
+  m_attackDamage: 10
+  m_distance: 1.2

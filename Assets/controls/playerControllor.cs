@@ -13,6 +13,8 @@ public class playerControllor : MonoBehaviour
     public PlayerMain m_player;
     private playerSetUp m_playerSetUp;
     private Animator m_animator;
+
+    public int m_playerIndex;
     private void Start()
     {
         m_isMoving = false;
@@ -43,6 +45,7 @@ public class playerControllor : MonoBehaviour
         else
         {
             m_direction = dir;
+            m_direction.y = 0f;
             m_isMoving = true;
             m_animator.SetBool("isWalking", true);
         }
@@ -96,6 +99,8 @@ public class playerControllor : MonoBehaviour
         m_animator.SetBool("isAttacking", false);
         m_player.m_canAttack = true;
     }
+
+    
 
     
 }

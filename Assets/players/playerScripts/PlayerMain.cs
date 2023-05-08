@@ -16,6 +16,13 @@ public class PlayerMain : MonoBehaviour
     protected int[] m_currentCombo2;
     protected int[] m_currentCombo3;
 
+    public int m_LightDamage;
+    public float m_lightDist;
+    public int m_MedDamage;
+    public float m_medDist;
+    public int m_hevDamage;
+    public float m_hevDist;
+
     public float m_light1Dur;
     public float m_light2Dur;
     public float m_light3Dur;
@@ -24,6 +31,16 @@ public class PlayerMain : MonoBehaviour
     public float m_hevDur;
 
     public bool m_canAttack;
+    public int m_damage;
+
+    public GameObject m_enemy;
+    public PlayerMain m_enemyMain;
+
+    public bool m_isBlocking;
+
+    public playerStats m_stats;
+
+    public float m_dist;
     private void Start()
     {
         m_currentCombo2 = new int[2];
@@ -46,14 +63,39 @@ public class PlayerMain : MonoBehaviour
         Debug.Log("test two failed");
     }
 
-    public IEnumerator C_attackDuration(float duration)
+    public IEnumerator C_attackDuration(float duration, float distance, int damage)
     {
         yield return new WaitForSeconds(duration);
         m_animator.SetBool("isAttacking", false);
         m_animator.SetInteger("attackType", -1);
+
+        checkDistance(distance, damage);
     }
 
-    
+    public void checkDistance(float distance, int damage)
+    {
+        float tempDist = Vector3.Distance(m_player.transform.position, m_enemy.transform.position);
 
-    
+        //tempDist = (transform.position.x + m_enemy.transform.position.x) / 2;
+        Debug.Log(tempDist);
+        if(tempDist <= distance)
+        {
+            m_enemyMain.takeDamage(damage);
+        }
+
+
+    }
+
+    public void takeDamage(int damage)
+    {
+        if(!m_isBlocking)
+        {
+            m_stats.takeDamage(damage);
+        }
+
+    }
+
+
+
+
 }
