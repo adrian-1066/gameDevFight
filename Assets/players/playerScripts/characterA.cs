@@ -184,14 +184,14 @@ public class characterA : PlayerMain
                 }
 
 
-                Debug.Log("the combo size is " + comboSize);
+                //Debug.Log("the combo size is " + comboSize);
 
                 if(comboSize == 2)
                 {
                     int temp0 = ((int)(m_recentAttackInput[0].x));
                     int temp1 = ((int)(m_recentAttackInput[1].x));
                     int[] tempCombo = new int[comboSize];
-                    Debug.Log(tempCombo[0] + " " + tempCombo[1]);
+                    //Debug.Log(tempCombo[0] + " " + tempCombo[1]);
                     tempCombo[0] = temp0;
                     tempCombo[1] = temp1;
                     m_currentCombo2 = tempCombo;
@@ -214,17 +214,17 @@ public class characterA : PlayerMain
 
                 int comboToDo = comboCheck(comboSize);
                 int comboAni;
-                Debug.Log("the combo to do " + comboToDo);
+                //Debug.Log("the combo to do " + comboToDo);
                 if(comboToDo != -1)
                 {
                     
                     comboAni = comboToDo;
-                    Debug.Log("combo ani is " + comboAni);
+                    //Debug.Log("combo ani is " + comboAni);
                     return comboAni;
                 }
                 else
                 {
-                    Debug.Log("there is no combo ani");
+                    //Debug.Log("there is no combo ani");
                     return m_attackType;
                 }
                                
@@ -244,7 +244,7 @@ public class characterA : PlayerMain
         }
         else
         {
-            Debug.Log("there is not enough inputs");
+           // Debug.Log("there is not enough inputs");
             return m_attackType;
         }
 
@@ -256,7 +256,7 @@ public class characterA : PlayerMain
         int comboToDo = -1;
         if(comboSize == 2)
         {
-            Debug.Log("checking for combo size 2");
+            //Debug.Log("checking for combo size 2");
             for(int x = 0; x < m_comboList.m_list2.Length; x++)
             {
                 if (m_comboList.m_list2[x].comboPattern[0] == m_currentCombo2[0] && m_comboList.m_list2[x].comboPattern[1] == m_currentCombo2[1])
@@ -265,7 +265,7 @@ public class characterA : PlayerMain
                     comboToDo = m_comboList.m_list2[x].m_animationNum;
                     m_damage = m_comboList.m_list2[x].m_attackDamage;
                     m_dist = m_comboList.m_list2[x].m_distance;
-                    Debug.Log("combo found for combo size 2");
+                    //Debug.Log("combo found for combo size 2");
                     break;
                 }
             }
@@ -284,7 +284,7 @@ public class characterA : PlayerMain
                     comboToDo = m_comboList.m_list3[x].m_animationNum;
                     m_damage = m_comboList.m_list3[x].m_attackDamage;
                     m_dist = m_comboList.m_list3[x].m_distance;
-                    Debug.Log("combo found for combo size 3");
+                    //Debug.Log("combo found for combo size 3");
                     break;
                 }
             }

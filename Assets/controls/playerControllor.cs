@@ -35,6 +35,41 @@ public class playerControllor : MonoBehaviour
         if(m_isMoving)
         {
             transform.position += (m_direction * m_moveSpeed);
+            Debug.Log("the direction is " + m_direction);
+
+            switch(m_playerIndex)
+            {
+                case 0:
+                    if(m_direction.x < 0)
+                    {
+                        m_player.m_isBlocking = true;
+                    }
+                    else
+                    {
+                        m_player.m_isBlocking = false;
+                    }
+
+
+                    break;
+
+                case 1:
+                    if(m_direction.x > 0)
+                    {
+                        m_player.m_isBlocking = true;
+                    }
+                    else
+                    {
+                        m_player.m_isBlocking = false;
+                    }
+
+                    break;
+
+            }
+
+        }
+        else
+        {
+            m_player.m_isBlocking = false;
         }
     }
 

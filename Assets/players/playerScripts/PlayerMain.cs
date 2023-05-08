@@ -104,7 +104,7 @@ public class PlayerMain : MonoBehaviour
         float tempDist = Vector3.Distance(m_player.transform.position, m_enemy.transform.position);
 
         //tempDist = (transform.position.x + m_enemy.transform.position.x) / 2;
-        Debug.Log(tempDist);
+        //Debug.Log(tempDist);
         if(tempDist <= distance)
         {
             m_enemyMain.takeDamage(damage, duration);
