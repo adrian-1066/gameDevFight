@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: medHev
   m_EditorClassIdentifier: 
   comboPattern: 0100000002000000
-  m_animationNum: 21
+  m_animationNum: 22
   m_attackDamage: 20
   m_distance: 1.2

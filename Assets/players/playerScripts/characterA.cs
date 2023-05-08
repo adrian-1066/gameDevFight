@@ -10,6 +10,11 @@ public class characterA : PlayerMain
 
     override public void lightAttack()
     {
+        if(!m_canAttack)
+        {
+            return;
+        }
+        m_canAttack = false;
         m_animator.SetBool("isAttacking", true);
         //m_animator.SetInteger("attackType", 0);
         m_attackType = 0;
@@ -49,6 +54,90 @@ public class characterA : PlayerMain
 
         StartCoroutine(C_attackDuration(tempDur, m_dist, m_damage));
 
+    }
+
+    public override void medAttack()
+    {
+        if (!m_canAttack)
+        {
+            return;
+        }
+        m_canAttack = false;
+        m_animator.SetBool("isAttacking", true);
+        m_attackType = 1;
+        Vector2 temp = new Vector2(m_attackType, Time.time);
+        m_recentAttackInput.Add(temp);
+        int attackAni = attackCombo();
+        m_animator.SetInteger("attackType", attackAni);
+        if (attackAni == m_attackType)
+        {
+            m_damage = m_MedDamage;
+            m_dist = m_medDist; ;
+        }
+
+        float tempDur;
+
+        if (attackAni == 1)
+        {
+            tempDur = m_medDur;
+        }
+        else if (attackAni == 22)
+        {
+            Debug.Log("doing the med hev combo");
+            tempDur = m_light2Dur;
+        }
+        else if (attackAni == 20)
+        {
+            Debug.Log("doing the med light combo");
+            tempDur = m_light3Dur;
+        }
+        else
+        {
+            
+            tempDur = m_medDur;
+        }
+
+        StartCoroutine(C_attackDuration(tempDur, m_dist, m_damage));
+    }
+
+    public override void hevAttack()
+    {
+        if (!m_canAttack)
+        {
+            return;
+        }
+        m_canAttack = false;
+        m_animator.SetBool("isAttacking", true);
+        m_attackType = 2;
+        Vector2 temp = new Vector2(m_attackType, Time.time);
+        m_recentAttackInput.Add(temp);
+        int attackAni = attackCombo();
+        m_animator.SetInteger("attackType", attackAni);
+        if (attackAni == m_attackType)
+        {
+            m_damage = m_hevDamage;
+            m_dist = m_hevDist;
+        }
+
+        float tempDur;
+        if (attackAni == 2)
+        {
+            tempDur = m_hevDur;
+        }
+        else if (attackAni == 22)
+        {
+            tempDur = m_light2Dur;
+        }
+        else if (attackAni == 20)
+        {
+            tempDur = m_light3Dur;
+        }
+        else
+        {
+            tempDur = m_hevDur;
+        }
+
+        StartCoroutine(C_attackDuration(tempDur, m_dist, m_damage));
     }
 
     override public void testTwo()

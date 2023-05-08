@@ -15,8 +15,13 @@ public class playerControllor : MonoBehaviour
     private Animator m_animator;
 
     public int m_playerIndex;
+
+    public bool m_hasGameStarted;
+
+    public bool m_canMove;
     private void Start()
     {
+        m_canMove = true;
         m_isMoving = false;
         m_playerSetUp = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<playerSetUp>();
         m_playerSetUp.setUpPlayer(gameObject);
@@ -35,7 +40,18 @@ public class playerControllor : MonoBehaviour
 
     public void move(InputAction.CallbackContext context)
     {
-       
+       if(!m_hasGameStarted)
+        {
+            return;
+        }
+
+       if(!m_canMove)
+        {
+            m_isMoving=false;
+            return;
+        }
+
+        Debug.Log("i am moving");
         Vector3 dir = context.ReadValue<Vector2>();
         if(dir == Vector3.zero)
         {
@@ -55,6 +71,11 @@ public class playerControllor : MonoBehaviour
 
     public void lightAttack(InputAction.CallbackContext context)
     {
+        if (!m_hasGameStarted)
+        {
+            return;
+        }
+
         if (m_player.m_canAttack)
         {
             
@@ -63,8 +84,8 @@ public class playerControllor : MonoBehaviour
             {
                 //Debug.Log("light attack");
                 m_player.lightAttack();
-                m_player.m_canAttack = false;
-                StartCoroutine(C_attackDuration(m_player.m_lightAttackDuration));
+               // m_player.m_canAttack = false;
+                //StartCoroutine(C_attackDuration(m_player.m_lightAttackDuration));
             }
             else if (context.ReadValue<float>() == 0)
             {
@@ -80,16 +101,32 @@ public class playerControllor : MonoBehaviour
 
     public void normalAttack(InputAction.CallbackContext context)
     {
+        if (!m_hasGameStarted)
+        {
+            return;
+        }
+
         if (context.ReadValue<float>() == 1)
         {
+            m_player.medAttack();
+            //m_player.m_canAttack = false;
             //Debug.Log("light attack");
-            m_player.testTwo();
+            //m_player.testTwo();
         }
     }
 
     public void heavyAttack(InputAction.CallbackContext context)
     {
+        if (!m_hasGameStarted)
+        {
+            return;
+        }
 
+        if (context.ReadValue<float>() == 1)
+        {
+            m_player.hevAttack();
+
+        }
     }
 
     public IEnumerator C_attackDuration(float duration)

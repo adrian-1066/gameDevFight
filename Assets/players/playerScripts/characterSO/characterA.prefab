@@ -108,10 +108,10 @@ MonoBehaviour:
   m_comboList: {fileID: 0}
   m_LightDamage: 5
   m_lightDist: 1
-  m_MedDamage: 0
-  m_medDist: 0
-  m_hevDamage: 0
-  m_hevDist: 0
+  m_MedDamage: 7
+  m_medDist: 1.3
+  m_hevDamage: 10
+  m_hevDist: 1.5
   m_light1Dur: 0.35
   m_light2Dur: 0.267
   m_light3Dur: 0.433

@@ -17,6 +17,11 @@ public class playerSetUp : MonoBehaviour
 
     private GameObject m_p1Actor;
     private GameObject m_p2Actor;
+
+
+    public GameObject m_p1Ui;
+    public GameObject m_p2Ui;
+   
     private void Awake()
     {
         m_damageTracker = GetComponent<damageTracker>();
@@ -53,6 +58,8 @@ public class playerSetUp : MonoBehaviour
             m_damageTracker.m_playerOne = player.GetComponent<playerStats>();
             player.GetComponent<SpriteRenderer>().flipX = true;
             m_camFollow.m_playerOne = player;
+            m_p1Ui.SetActive(false);
+            m_p2Ui.SetActive(true);
         }
         else if(user == 1)
         {
@@ -66,6 +73,7 @@ public class playerSetUp : MonoBehaviour
             m_damageTracker.m_playerTwo = player.GetComponent<playerStats>();
             m_camFollow.m_playerTwo = player;
             m_camFollow.m_bothPlayersIn = true;
+            m_p2Ui.SetActive(false );
 
             setUpSecondary();
         }
@@ -83,6 +91,11 @@ public class playerSetUp : MonoBehaviour
 
         m_damageTracker.m_playerOne = m_playerOne.GetComponent<playerStats>();
         m_damageTracker.m_playerTwo = m_playerTwo.GetComponent<playerStats>();
+
+        m_p1Actor.gameObject.GetComponent<playerControllor>().m_hasGameStarted = true;
+        m_p2Actor.gameObject.GetComponent<playerControllor>().m_hasGameStarted = true;
+        m_damageTracker.m_hasGameStarted = true;
+
 
 
     }

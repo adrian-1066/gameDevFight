@@ -40,6 +40,8 @@ public class PlayerMain : MonoBehaviour
 
     public playerStats m_stats;
 
+    public bool m_isStunned;
+
     public float m_dist;
     private void Start()
     {
@@ -49,6 +51,16 @@ public class PlayerMain : MonoBehaviour
     }
 
     virtual public void lightAttack()
+    {
+
+    }
+
+    virtual public void medAttack()
+    {
+
+    }
+
+    virtual public void hevAttack()
     {
 
     }
@@ -66,13 +78,28 @@ public class PlayerMain : MonoBehaviour
     public IEnumerator C_attackDuration(float duration, float distance, int damage)
     {
         yield return new WaitForSeconds(duration);
+        m_canAttack = true;
         m_animator.SetBool("isAttacking", false);
         m_animator.SetInteger("attackType", -1);
 
-        checkDistance(distance, damage);
+        checkDistance(distance, damage, duration);
     }
 
-    public void checkDistance(float distance, int damage)
+    public IEnumerator C_stunDuration(float duration)
+    {
+        m_animator.SetBool("isGrabbed", true);
+        m_player.GetComponent<playerControllor>().m_canMove = false;
+        m_isStunned = true;
+        m_canAttack = false;
+        yield return new WaitForSeconds(duration);
+        m_isStunned = false;
+        m_canAttack = true;
+        m_animator.SetBool("isGrabbed", false);
+        m_player.GetComponent<playerControllor>().m_canMove = true;
+
+    }
+
+    public void checkDistance(float distance, int damage, float duration)
     {
         float tempDist = Vector3.Distance(m_player.transform.position, m_enemy.transform.position);
 
@@ -80,17 +107,18 @@ public class PlayerMain : MonoBehaviour
         Debug.Log(tempDist);
         if(tempDist <= distance)
         {
-            m_enemyMain.takeDamage(damage);
+            m_enemyMain.takeDamage(damage, duration);
         }
 
 
     }
 
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, float duration)
     {
         if(!m_isBlocking)
         {
             m_stats.takeDamage(damage);
+            StartCoroutine(C_stunDuration(duration));
         }
 
     }

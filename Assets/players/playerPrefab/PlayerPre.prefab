@@ -207,6 +207,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 22e93820-8998-4361-a5fb-ad91393c8e1e
     m_ActionName: UI/Look
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7676135249214888904}
+        m_TargetAssemblyTypeName: playerControllor, Assembly-CSharp
+        m_MethodName: heavyAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4fe74a86-79b6-4dfd-ae99-1885cdd4041e
+    m_ActionName: Player/heavyAttack[/XInputControllerWindows/buttonEast,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -227,6 +243,7 @@ MonoBehaviour:
   m_moveSpeed: 0.002
   m_player: {fileID: 0}
   m_playerIndex: 0
+  m_hasGameStarted: 0
 --- !u!95 &5519054676067149730
 Animator:
   serializedVersion: 4
