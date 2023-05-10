@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: defe0aef00f1c7c43a31423d086d3e1e
   - enabled: 1
-    path: Assets/Scenes/characterSelection.unity
-    guid: 54abd584bf4eea54483e6a28d7aa47f1
+    path: Assets/Scenes/testStage.unity
+    guid: 5a89d2e8119074b44a5a1f884d20c307
   - enabled: 1
-    path: Assets/Scenes/fightScene.unity
-    guid: ad48ef44581a49e49a14b10115242c93
+    path: Assets/Scenes/endStage.unity
+    guid: 45b1aa76111a48a4abd3b0186f2848a4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0721511b10e79604291cc1e40c165870, type: 2}
